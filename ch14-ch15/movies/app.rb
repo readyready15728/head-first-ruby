@@ -2,8 +2,15 @@ require 'sinatra'
 require 'movie'
 
 get('/movies') do
-  @movie = Movie.new
-  @movie.title = 'Jaws'
+  @movies = []
+  titles = ['Jaws', 'Alien', 'Terminator 2']
+
+  titles.each do |title|
+    movie = Movie.new
+    movie.title = title
+
+    @movies << movie
+  end
 
   erb :index
 end
