@@ -1,5 +1,8 @@
 require 'sinatra'
 require 'movie'
+require 'movie_store'
+
+store = MovieStore.new('movies.yaml')
 
 get('/movies') do
   @movies = []
@@ -24,6 +27,9 @@ post('/movies/create') do
   @movie.title = params['title']
   @movie.director = params['director']
   @movie.year = params['director']
+
+  store.save(@movie)
+  redirect '/movies/new'
 end
 
 get('/addition') do
