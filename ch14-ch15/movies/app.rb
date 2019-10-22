@@ -34,3 +34,7 @@ end
 get('/movies/new') do
   erb :new
 end
+
+post('/movies/create') do
+  "Received: #{params.inspect}"
+end
