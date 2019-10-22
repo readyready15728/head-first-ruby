@@ -30,3 +30,7 @@ get('/multiplication') do
 
   erb :multiplication
 end
+
+get('/movies/new') do
+  erb :new
+end
