@@ -15,6 +15,17 @@ get('/movies') do
   erb :index
 end
 
+get('/movies/new') do
+  erb :new
+end
+
+post('/movies/create') do
+  @movie = Movie.new
+  @movie.title = params['title']
+  @movie.director = params['director']
+  @movie.year = params['director']
+end
+
 get('/addition') do
   @first = 3
   @second = 5
@@ -29,15 +40,4 @@ get('/multiplication') do
   @result = @first * @second
 
   erb :multiplication
-end
-
-get('/movies/new') do
-  erb :new
-end
-
-post('/movies/create') do
-  @movie = Movie.new
-  @movie.title = params['title']
-  @movie.director = params['director']
-  @movie.year = params['director']
 end
